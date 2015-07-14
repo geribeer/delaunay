@@ -32,11 +32,12 @@
       var triangles = Delaunay.triangulate(vertices);
       console.timeEnd("triangulate");
 
-      for(i = triangles.length; i; ) {
+      for(i = 0; i < triangles.length; ++i) {
         ctx.beginPath();
-        --i; ctx.moveTo(vertices[triangles[i]][0], vertices[triangles[i]][1]);
-        --i; ctx.lineTo(vertices[triangles[i]][0], vertices[triangles[i]][1]);
-        --i; ctx.lineTo(vertices[triangles[i]][0], vertices[triangles[i]][1]);
+        var tri = triangles[i];
+        ctx.moveTo(vertices[tri[0]][0], vertices[tri[0]][1]);
+        ctx.lineTo(vertices[tri[1]][0], vertices[tri[1]][1]);
+        ctx.lineTo(vertices[tri[2]][0], vertices[tri[2]][1]);
         ctx.closePath();
         ctx.stroke();
       }

@@ -195,7 +195,7 @@ var Delaunay;
 
       for(i = closed.length; i--; )
         if(closed[i].i < n && closed[i].j < n && closed[i].k < n)
-          open.push(closed[i].i, closed[i].j, closed[i].k);
+          open.push([closed[i].i, closed[i].j, closed[i].k]);
 
       /* Yay, we're done! */
       return open;
